@@ -1,0 +1,48 @@
+[package]
+name = "rustpack"
+version = "0.1.0"
+edition = "2021"
+description = "Shellcode packer for authorized penetration testing"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+aes = "0.8"
+cbc = { version = "0.1", features = ["alloc"] }
+rand = "0.8"
+hex = "0.4"
+sha2 = "0.10"
+block-padding = "0.3"
+anyhow = "1"
+chrono = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.12", features = ["blocking"] }
+
+[dev-dependencies]
+rand = "0.8"
+
+[lib]
+name = "rustpack"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rustpack"
+path = "src/main.rs"
+
+[[test]]
+name = "encrypt_test"
+path = "tests/unit/encrypt_test.rs"
+
+[[test]]
+name = "encode_test"
+path = "tests/unit/encode_test.rs"
+
+[[test]]
+name = "polymorphism_test"
+path = "tests/unit/polymorphism_test.rs"
+
+[[test]]
+name = "environmental_test"
+path = "tests/unit/environmental_test.rs"
+
+[[test]]
+name = "builder_test"
+path = "tests/integration/builder_test.rs"
