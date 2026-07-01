@@ -94,7 +94,7 @@ fn sandbox_domain_joined() -> String {
         use windows_sys::Win32::NetworkManagement::NetManagement::*;
         unsafe {
             let mut buffer: *mut u16 = std::ptr::null_mut();
-            let mut join_status: u32 = 0;
+            let mut join_status: i32 = 0;
             let result = NetGetJoinInformation(
                 std::ptr::null(),
                 &mut buffer,
